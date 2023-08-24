@@ -1,0 +1,27 @@
+html {
+    background: black;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Tektur', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.name{
+    
+    position: absolute;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    background-color: rgba(0, 0, 0, 0.532);
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-family: 'Tektur', cursive;
+        }
+        
+        html{
+            overflow-x: hidden;
+        }
+
+        .filters{
+            display: flex;
+            width:  200vw;
+            height: 100vh;
+            transition:.5s ease-in-out;
+            transform: translateX(-100vw);
+        }
+
+        .filters .filter-black{
+            backdrop-filter: invert(100%);
+            width: 100vw;
+            height: 100%;
+        }
+
+        .filters .filter-white{
+            height: 100%;
+            width: 50vw;
+        }
+
+        .parallax{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            align-items: center;
+        }
+
+        .name{
+            border: 2px solid black;
+            width: 354px;
+            padding: 12px 17px;
+            text-align: center;
+        }
+
+        .name span{
+            margin: 5px;
+            font-size: 28px;
+        }
+
+        .rotation{
+            transform: translateX(0vw);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="filters">
+        <div class="filter-white">
+
+        </div>
+        <div class="filter-black">
+
+        </div>
+        
+        <div class="filter-white">
+
+        </div>
+    </div>
+    <section class="parallax">
+        <div class="para">
+
+        </div>
+
+        <div class="para name-container">
+            <div class="name">
+                <span>M</span>
+                <span>i</span>
+                <span>c</span>
+                <span>r</span>
+                <span>o</span>
+                <span>T</span>
+                <span>w</span>
+                <span>e</span>
+                <span>a</span>
+                <span>k</span>
+                <span>s</span>
+            </div>
+        </div>
+
+        <div class="para circle">
+
+        </div>
+    </section>
+
+    <section class="">
+
+    </section>
+
+    <script>
+        let expectedName = 'MicroTweaks';
+        var alphabet_ = 'abcdefghijklmnopqrstuvwxyz';
+        function getRandomLatinLetter(alphabet) {
+           
+            const randomIndex = Math.floor(Math.random() * alphabet.length);
+            return alphabet[randomIndex];
+        }
+
+
+        function generateRandomLetterWithDelay(element, expected, alphabet) {
+            setTimeout(function () {
+ 
+                const randomLetter = getRandomLatinLetter(alphabet);
+
+                console.log(randomLetter);
+                if(randomLetter === expected.toLowerCase()){
+                    element.innerHTML = expected;
+                }
+                else {
+                    if(randomLetter > expected.toLowerCase()){
+                        alphabet = alphabet.slice(0, alphabet.indexOf(randomLetter));
+                    } else{
+                        alphabet = alphabet.slice(alphabet.indexOf(randomLetter));
+                    }
+                    element.innerHTML = randomLetter;
+                    generateRandomLetterWithDelay(element, expected, alphabet);
+                }
+            }, 100); // 1000 milliseconds (1 second) delay
+        }
+        let counter=0;
+        document.querySelectorAll(".name span").forEach(element => {     
+            element.addEventListener("load", generateRandomLetterWithDelay(element, expectedName[counter], alphabet_));
+            counter+=1;
+        });
+
+        document.querySelector(".filters").addEventListener("click", function(){
+            document.querySelector(".filters").classList.toggle("rotation");
+        })
+
+    </script>
+</body>
+</html>
