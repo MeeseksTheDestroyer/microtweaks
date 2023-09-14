@@ -6,13 +6,17 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/regular.min.css" integrity="sha512-EbT6icebNlvxlD4ECiLvPOVBD0uQdt4pHRg8Gpkfirdu9W8l2rtRZO8rThjqeIK08ubcFeiFKHbek7y+lEbWIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=JetBrains+Mono&family=Roboto+Mono&display=swap" rel="stylesheet">
+
     <style>
         *{
             margin: 0;
             padding: 0;
             border: none;
-            font-family: 'Tektur', cursive;
+            font-family: 'JetBrains Mono', monospace;
         }
         
         html{
@@ -23,8 +27,11 @@
             display: flex;
             width:  200vw;
             height: 100vh;
+            position: absolute;
+            z-index: -2;
             transition:.5s ease-in-out;
             transform: translateX(-100vw);
+            top: 0;
         }
 
         .filters .filter-black{
@@ -41,12 +48,11 @@
         .parallax{
             width: 100%;
             height: 100vh;
-            display: flex;
-            justify-content: center;
+
             position: absolute;
             top: 0;
             left: 0;
-            z-index: -2;
+            z-index: -3;
             align-items: center;
         }
 
@@ -55,21 +61,74 @@
             width: 354px;
             padding: 12px 17px;
             text-align: center;
+            font-family: 'Tektur', cursive;
         }
 
         .name span{
             margin: 5px;
             font-size: 28px;
+            font-family: 'Tektur', cursive;
         }
 
         .rotation{
             transform: translateX(0vw);
         }
 
+        .para{
+            width: 100%;
+            height: calc(100%/3);
+            display: flex;
+            justify-content:center;
+            align-items: center;
+        }
+
+        .circle{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .about-us{
+            background-color: black;
+            width: 100%;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .none{
+            width: 100%;
+            height: 100vh;
+            background-color: transparent;
+            color: transparent;
+        }
+
+        .title{
+            display: flex;
+            align-items: center;
+            font-family: 'Tektur', cursive;
+        }
+
+        .spaces{
+            margin-left: 10px;
+            font-family: 'Tektur', cursive;
+            font-size: 30px;
+        }
+
+        .about{
+            text-align: center;
+        }
+
 
     </style>
 </head>
 <body>
+    <div class="none">
+        
+    </div>
     <div class="filters">
         <div class="filter-white">
 
@@ -103,13 +162,20 @@
             </div>
         </div>
 
-        <div class="para circle">
-
+        <div class="para circle-container">
+            <div class="circle">
+                <i class="fa-solid fa-angle-down" style="color:rgba(255, 255, 255, 1);"></i>
+                <i class="fa-solid fa-angle-down" style="color:rgba(255, 255, 255, 1);"></i>
+            </div>
         </div>
     </section>
 
-    <section class="">
-
+    <section class="about-us">
+        <div class="title">
+            <svg style="color:rgb(20 184 166);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" height="32" class="right-full mr-2 text-teal-500 md:absolute"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <a class="spaces">About us</a>
+        </div>
+        <div class="about"></div>
     </section>
 
     <script>
@@ -148,9 +214,11 @@
             counter+=1;
         });
 
-        document.querySelector(".filters").addEventListener("click", function(){
+        document.querySelector(".none").addEventListener("click", function(){
+            console.log("click");
             document.querySelector(".filters").classList.toggle("rotation");
         })
+
 
     </script>
 </body>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        header{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .filter-one{
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            filter:brightness(10%);
+            width: 100%;
+            background-image: url(3wTCBF.webp);
+            height: 100vh;
+            position: absolute;
+
+            z-index: -1;
+            top:0;
+            left:0;
+        }
+
+        .filter-two{
+            backdrop-filter:brightness(1000%);
+            min-width: 12px;
+            min-height: 12px;
+            border-radius: 50%;
+            margin: 1.5px;
+            width: 6px;
+
+            height: 6px;
+        }
+
+        .filter-two-test{
+            backdrop-filter:brightness(1000%);
+            min-width: 12px;
+            min-height: 12px;
+            border-radius: 50%;
+            margin: 2px;
+            width: 0.7vw;
+            height: 1.4vh;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -9999;
+        }
+
+        .real-filter{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .row{
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .text-dave{
+            font-family: 'VT323', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="filter-two-test"></div>
+    <div class="filter-one"></div>
+    <header>
+        <div class="real-filter">
+            <div class="row">
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+                <div class="filter-two"></div>
+
+            </div>
+        </div>
+        
+    </header>
+    <script>
+        // 36
+        let jjj = 0;
+        const cords = [
+            [36, 67]
+        ];
+        function generateBubbles(parentSupreme){
+
+            document.querySelector(".real-filter").innerHTML = "";
+            const {width, height} = calculateBubbles(window.innerWidth, window.innerHeight, document.querySelector(".filter-two-test"));
+            for(let i = 0; i < 140; i++){
+                
+                const parentElement = document.createElement('div');
+                parentElement.classList.add('row');
+                for(let j = 0; j < 85; j++){
+
+                    const childElement = document.createElement('div');
+                    childElement.classList.add('filter-two');
+                    
+                    parentElement.appendChild(childElement);
+                }
+                parentSupreme.appendChild(parentElement);
+                jjj ++;
+            }
+        }
+
+        function calculateBubbles(windowWidth, windowHeight, testBubble){
+            console.log(Math.floor(window.innerWidth * 0.8 / (testBubble.offsetWidth + testBubble.style.margin * 2) ));
+            return  { width: Math.floor(window.innerWidth * 0.8 / (testBubble.offsetWidth + testBubble.style.margin * 2) ), height: Math.floor(window.innerHeight / (testBubble.offsetHeight + testBubble.style.margin * 2)) };
+        }
+ 
+        generateBubbles(document.querySelector(".real-filter"));
+        console.log(document.querySelector(".filter-two-test").offsetWidth);
+        console.log(calculateBubbles(null, null, document.querySelector(".real-filter")));
+
+    </script>
+</body>
+</html>
