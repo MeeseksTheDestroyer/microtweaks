@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/style-about-us.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-background">
+
+    </div>
+    <script>
+        const icons = {
+            "path" : "assets/images/icons/",
+            "icons" : [
+                "controller.png",
+                "game (1).png",
+                "game (2).png",
+                "game-console.png",
+                "game.png",
+                "mushroom.png",
+                "psx.png"
+            ]
+        }
+
+        const min_height = 0;
+        const max_height = window.innerHeight;
+
+        const min_width = 0;
+        const max_width = window.innerWidth;
+        function getRandomNumber(min, max) {
+  // Generate a random number between min (inclusive) and max (exclusive)
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+
+        for(let i=0; i<200; i++){
+            const x = getRandomNumber(min_height, max_height);
+            const y = getRandomNumber(min_width, max_width);
+            const icon = getRandomNumber(0, icons.icons.length - 1);
+            document.querySelector(".container-background").innerHTML += `<img class='image' src='${icons.path + icons.icons[icon]}' style='top: ${x}px; left: ${y}px;'>`;
+        }
+
+
+
+    </script>
+</body>
+</html>
